@@ -7,7 +7,7 @@ package simon.leetcode.p122;
  */
 public class BestTimeToBuyAndSellStock2 {
 	public static void main(String[] args){
-		SolutionP122.maxProfit(new int[]{2,2,2,5});
+		SolutionP122.maxProfit(new int[]{2,2,2,5,5,7,7,7});
 	}
 }
 
@@ -31,11 +31,11 @@ class SolutionP122 {
             System.out.printf("Add %d to min%n", prices[0]);
         }
         for(int i=2;i<prices.length;i++) {
-            if(prices[i-2]<prices[i-1] && prices[i-1]>prices[i] && isBought){
+            if(prices[i-2]<=prices[i-1] && prices[i-1]>prices[i] && isBought){
                 max += prices[i-1];
                 System.out.printf("Add %d to max%n", prices[i-1]);
                 isBought = false;
-            }else if(prices[i-2]>prices[i-1] && prices[i-1]<prices[i] && !isBought){
+            }else if(prices[i-2]>=prices[i-1] && prices[i-1]<prices[i] && !isBought){
                 min += prices[i-1];
                 System.out.printf("Add %d to min%n", prices[i-1]);
                 isBought = true;
